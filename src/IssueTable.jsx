@@ -47,13 +47,25 @@ class IssueRowPlain extends React.Component {
                     </OverlayTrigger>
                 </LinkContainer>
                 {' | '}
-                <OverlayTrigger delayShow={300} overlay={closeTooltip}>
+                {user.signedIn ? (<OverlayTrigger delayShow={300} overlay={closeTooltip} key="top" placement="top">
                     <Button bsSize="xsmall" type="button" onClick={onClose} disabled={disabled}><Glyphicon glyph="remove" /></Button>
-                </OverlayTrigger>
+                </OverlayTrigger>) : (
+                        <OverlayTrigger overlay={<Tooltip id="msg-tooltip" >Signin required!</Tooltip>} key="top" placement="top">
+                            <div style={{ display: 'inline-block', cursor: 'not-allowed' }}>
+                                <Button bsSize="xsmall" disabled={true} type="button" style={{ pointerEvents: 'none' }}><Glyphicon glyph="remove" /></Button>
+                            </div>
+                        </OverlayTrigger>
+                    )}
                 {'  '}
-                <OverlayTrigger delayShow={300} overlay={deleteTooltip}>
+                {user.signedIn ? (<OverlayTrigger delayShow={300} overlay={deleteTooltip}>
                     <Button bsSize="xsmall" type="button" onClick={onDelete} disabled={disabled}><Glyphicon glyph="trash" /></Button>
-                </OverlayTrigger>
+                </OverlayTrigger>) : (
+                        <OverlayTrigger overlay={<Tooltip id="msg-tooltip" >Signin required!</Tooltip>} key="right" placement="right">
+                            <div style={{ display: 'inline-block', cursor: 'not-allowed' }}>
+                                <Button bsSize="xsmall" disabled={true} type="button" style={{ pointerEvents: 'none' }}><Glyphicon glyph="trash" /></Button>
+                            </div>
+                        </OverlayTrigger>
+                    )}
 
             </td>
         </tr>)

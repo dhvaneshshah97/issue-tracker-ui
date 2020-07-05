@@ -169,10 +169,16 @@ export default class IssueEdit extends React.Component {
                         <FormGroup>
                             <Col smOffset={3} sm={6}>
                                 <ButtonToolbar>
-                                    <Button disabled={!user.signedIn} bsStyle="primary" type="submit">Submit</Button>
                                     <LinkContainer to="/issues">
                                         <Button bsStyle="link">Back</Button>
                                     </LinkContainer>
+                                    {user.signedIn ? (<Button bsStyle="primary" type="submit">Submit</Button>) : (
+                                        <OverlayTrigger overlay={<Tooltip id="msg-tooltip" >Signin required!</Tooltip>}>
+                                            <div style={{ display: 'inline-block', cursor: 'not-allowed' }}>
+                                                <Button bsStyle="primary" disabled={true} type="submit" style={{ pointerEvents: 'none' }}>Submit</Button>
+                                            </div>
+                                        </OverlayTrigger>
+                                    )}
                                 </ButtonToolbar>
                             </Col>
                         </FormGroup>

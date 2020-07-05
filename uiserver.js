@@ -3,7 +3,7 @@ const express = require('express');
 require('dotenv').config();
 const path = require('path');
 
-const port = process.env.UI_SERVER_PORT || 8000;
+const port = process.env.PORT || 8000;
 // const proxy = require('http-proxy-middleware');
 // const apiProxyTarget = process.env.API_PROXY_TARGET;
 // if (apiProxyTarget){

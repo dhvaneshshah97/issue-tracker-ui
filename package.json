@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "ui",
   "main": "index.js",
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -w uiserver.js -w .env uiserver.js",
     "compile": "webpack --mode production",
     "watch": "webpack --watch",
-    "lint": "eslint . --ext js,jsx --ignore-pattern public"
+    "lint": "eslint . --ext js,jsx --ignore-pattern public",
+    "heroku-postbuild": "npm run compile && ln -fs ../node_modules/bootstrap/dist/css/bootstrap.min.css"
   },
   "author": "Dhvanesh",
   "license": "ISC",

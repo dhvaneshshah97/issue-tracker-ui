@@ -46,4 +46,4 @@ app.use('/', middleware);
 app.get('*', (req, res) => {
     res.sendFile(path.resolve('public/index.html'));
 });
-app.listen(8000, () => { console.log(`UI started on port ${port}`) });
+app.listen(port, () => { console.log(`UI started on port ${port}`) });

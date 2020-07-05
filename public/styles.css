@@ -2,9 +2,6 @@ table.table-hover tr {
     cursor: pointer;
 }
 
-body {
-    padding-top: 70px;
-}
 
 .panel-title a {
     display: block;
